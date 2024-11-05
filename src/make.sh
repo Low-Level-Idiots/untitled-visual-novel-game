@@ -1,1 +1,1 @@
-g++ main.cpp -o uvng -lSDL2
+g++ main.cpp scene.cpp -o uvng -lSDL2
