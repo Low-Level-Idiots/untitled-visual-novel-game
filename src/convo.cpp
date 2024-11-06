@@ -2,7 +2,7 @@
 
 Convo::Convo(){}
 
-void Convo::addOption(){}
+void Convo::add_option(){}
 
 void Convo::render(){}
 

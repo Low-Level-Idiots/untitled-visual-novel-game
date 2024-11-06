@@ -5,6 +5,8 @@
 #include <vector>
 #include <SDL2/SDL.h>
 
+#include "scene.h"
+
 class Convo;
 class Option;
 
@@ -12,7 +14,7 @@ class Convo {
 	public:
 		Convo();
 		std::string dialogue;
-		void addOption(Option option);
+		void add_option(Option option);
 		void render(SDL_Renderer rend);
 		Convo input();
 }
