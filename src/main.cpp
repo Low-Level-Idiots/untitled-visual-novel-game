@@ -12,6 +12,15 @@ int main(int argc, char* argv[]){
 	SDL_Window *win = SDL_CreateWindow("Untitled Visual Novel Game", 30, 10, 900, 600, 0);
 	SDL_Renderer *rend = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED);
 	SDL_Surface *icon = IMG_Load("assets/test.png");
+
+	SDL_Texture *test_tex = SDL_CreateTextureFromSurface(rend, icon);
+
+	SDL_Rect test_ent;
+	test_ent.x = 10; 
+	test_ent.y = 10; 
+	test_ent.w = 100; 
+	test_ent.h = 100; 
+
 	SDL_SetWindowIcon(win, icon);
 	SDL_FreeSurface(icon);
 	scene = testScene1;
@@ -38,6 +47,8 @@ int main(int argc, char* argv[]){
 		SDL_RenderClear(rend);
 
 		scene(rend, events);
+
+		SDL_RenderCopy(rend, test_tex, NULL, &test_ent);
 
 		SDL_RenderPresent(rend);
 	}
