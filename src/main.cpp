@@ -4,21 +4,18 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
+#include "ui.h"
 #include "scene.h"
 
 int main(int argc, char* argv[]){
-//	SDL_Init(SDL_INIT_EVERYTHING);
-//	IMG_Init(IMG_INIT_PNG);
+	SDL_Init(SDL_INIT_EVERYTHING);
+	IMG_Init(IMG_INIT_PNG);
 	SDL_Window *win = SDL_CreateWindow("Untitled Visual Novel Game", 30, 10, 900, 600, 0);
 	SDL_Renderer *rend = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED);
-	SDL_Surface *icon = IMG_Load("assets/test.png");
 
-	SDL_Texture *test_tex = SDL_CreateTextureFromSurface(rend, icon);
+	Img icon(rend, "assets/test.png");
 
-	SDL_Rect test_ent {10, 10, 100, 100};
-
-	SDL_SetWindowIcon(win, icon);
-	SDL_FreeSurface(icon);
+	SDL_SetWindowIcon(win, icon.surf);
 	scene = testScene1;
 
 	bool running = true;
@@ -44,7 +41,7 @@ int main(int argc, char* argv[]){
 
 		scene(rend, events);
 
-		SDL_RenderCopy(rend, test_tex, NULL, &test_ent);
+		icon.render(rend, 10, 10, 100, 100);
 
 		SDL_RenderPresent(rend);
 	}
