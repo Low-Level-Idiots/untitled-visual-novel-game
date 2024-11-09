@@ -1,9 +1,13 @@
+#include <iostream>
+#include <vector>
 #include <SDL2/SDL.h>
 
-Convo::Convo(){}
+#include "scene.h"
+#include "ui.h"
+#include "convo.h"
 
-void Convo::add_option(){}
+Convo::Convo(SDL_Renderer *rend, std::string d){
+	dialogue = d;
+}
 
-void Convo::render(){}
-
-Convo input(){}
+void Convo::render(SDL_Renderer *rend){}

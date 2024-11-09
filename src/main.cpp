@@ -10,7 +10,7 @@
 int main(int argc, char* argv[]){
 	SDL_Init(SDL_INIT_EVERYTHING);
 	IMG_Init(IMG_INIT_PNG);
-	SDL_Window *win = SDL_CreateWindow("Untitled Visual Novel Game", 30, 10, 900, 600, 0);
+	SDL_Window *win = SDL_CreateWindow("Untitled Visual Novel Game", 30, 10, 1000, 600, 0);
 	SDL_Renderer *rend = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED);
 
 	Img icon(rend, "assets/test.png");
