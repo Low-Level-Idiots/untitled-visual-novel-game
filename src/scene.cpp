@@ -3,7 +3,6 @@
 #include <iostream>
 
 #include "scene.h"
-#include "convo.h"
 
 void testScene1(SDL_Renderer *rend, std::vector<SDL_Event> events);
 void testScene2(SDL_Renderer *rend, std::vector<SDL_Event> events);
@@ -24,7 +23,6 @@ void testScene1(SDL_Renderer *rend, std::vector<SDL_Event> events){
 }
 
 void testScene2(SDL_Renderer *rend, std::vector<SDL_Event> events){
-	Convo convo(rend, std::string("test"));
 	for(int i = 0; i < events.size(); i++){
 		switch(events[i].type){
 			case SDL_KEYDOWN:
