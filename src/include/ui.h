@@ -7,8 +7,7 @@
 
 class Img {
 	public:
-		Img();
-		void construct(SDL_Renderer* rend, char* file);
+		Img(SDL_Renderer* rend, char* file);
 		SDL_Surface *surf;
 		SDL_Texture *tex;
 		void render(SDL_Renderer* rend, int x, int y, int w, int h);
@@ -16,7 +15,9 @@ class Img {
 
 class Button {
 	public:
-		Button
-}
+		Button();
+		Img *sprite;
+		void render();
+};
 
 #endif
