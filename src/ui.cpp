@@ -4,7 +4,9 @@
 
 #include "include/ui.h"
 
-Img::Img(SDL_Renderer* rend, char* file){
+Img::Img(){}
+
+void Img::construct(SDL_Renderer* rend, char* file){
 	surf = IMG_Load(file);
 	tex = SDL_CreateTextureFromSurface(rend, surf);
 }
