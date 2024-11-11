@@ -2,7 +2,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
-#include "ui.h"
+#include "include/ui.h"
 
 Img::Img(SDL_Renderer* rend, char* file){
 	surf = IMG_Load(file);

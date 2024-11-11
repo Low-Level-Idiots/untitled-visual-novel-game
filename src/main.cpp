@@ -4,14 +4,14 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
-#include "ui.h"
-#include "scene.h"
+#include "include/ui.h"
+#include "include/scene.h"
 
 int main(int argc, char* argv[]){
-	SDL_Init(SDL_INIT_EVERYTHING);
-	IMG_Init(IMG_INIT_PNG);
-	SDL_Window *win = SDL_CreateWindow("Untitled Visual Novel Game", 30, 10, 1000, 600, 0);
-	SDL_Renderer *rend = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED);
+	SDL_Init(SDL_INIT_EVERYTHING);                                                                 // Init SDL2 lib
+	IMG_Init(IMG_INIT_PNG);                                                                        // Init SDL2_image
+	SDL_Window *win = SDL_CreateWindow("Untitled Visual Novel Game", 30, 10, 1000, 600, 0);        // make game window
+	SDL_Renderer *rend = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED);                    // 
 
 	Img icon(rend, "assets/test.png");
 
@@ -41,7 +41,7 @@ int main(int argc, char* argv[]){
 
 		scene(rend, events);
 
-		icon.render(rend, 10, 10, 100, 100);
+		icon.render(rend, 100, 100, 100, 100);
 
 		SDL_RenderPresent(rend);
 	}
