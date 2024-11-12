@@ -2,6 +2,7 @@
 #define UI_H
 
 #include <iostream>
+#include <vector>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
@@ -15,9 +16,12 @@ class Img {
 
 class Button {
 	public:
-		Button();
+		Button(SDL_Renderer* rend, int x, int y);
 		Img *sprite;
-		void render();
+		int x;
+		int y;
+		void render(SDL_Renderer *rend, int scale);
+		bool clicked(std::vector<SDL_Event> events);
 };
 
 #endif
