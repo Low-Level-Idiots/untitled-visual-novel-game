@@ -39,8 +39,8 @@ int main(int argc, char* argv[]){
 			}
 		}
 		Uint32 frame_time = SDL_GetTicks() - frame_start;
-		if(frame_time < 60){
-			SDL_Delay(60 - frame_time);
+		if(frame_time < 1/60){
+			SDL_Delay(1/60 - frame_time);
 		}
 		SDL_RenderClear(rend);
 
