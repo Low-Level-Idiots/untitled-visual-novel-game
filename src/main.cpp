@@ -27,6 +27,7 @@ int main(int argc, char* argv[]){
 	while(running){
 		Uint32 frame_start = SDL_GetTicks();
 		SDL_Event event;
+		SDL_GetMouseState(&mouse_x, &mouse_y);
 		std::vector<SDL_Event> events;
 		while(SDL_PollEvent(&event)){
 			events.push_back(event);
@@ -44,12 +45,11 @@ int main(int argc, char* argv[]){
 		}
 		SDL_RenderClear(rend);
 
-		scene(rend, events);
+		scene(rend, events, mouse_x, mouse_y);
 
 		icon.render(rend, 100, 100, 100, 100);
 
-		SDL_GetMouseState(&mouse_x, &mouse_y);
-		cursor.render(rend,mouse_x, mouse_y, 22, 22);
+		cursor.render(rend, mouse_x, mouse_y, 22, 22);
 		SDL_RenderPresent(rend);
 	}
 	SDL_DestroyWindow(win);

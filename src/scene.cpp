@@ -5,12 +5,12 @@
 #include "include/scene.h"
 #include "include/ui.h"
 
-void testScene1(SDL_Renderer *rend, std::vector<SDL_Event> events);
-void testScene2(SDL_Renderer *rend, std::vector<SDL_Event> events);
+void testScene1(SDL_Renderer *rend, std::vector<SDL_Event> events, int mouse_x, int mouse_y);
+void testScene2(SDL_Renderer *rend, std::vector<SDL_Event> events, int mouse_x, int mouse_y);
 
-std::function<void(SDL_Renderer*, std::vector<SDL_Event>)> scene;
+std::function<void(SDL_Renderer*, std::vector<SDL_Event>, int, int)> scene;
 
-void testScene1(SDL_Renderer *rend, std::vector<SDL_Event> events){
+void testScene1(SDL_Renderer *rend, std::vector<SDL_Event> events, int mouse_x, int mouse_y){
 	Button button(rend, 50, 50);
 	for(int i = 0; i < events.size(); i++){
 		switch(events[i].type){
@@ -23,7 +23,7 @@ void testScene1(SDL_Renderer *rend, std::vector<SDL_Event> events){
 	button.render(rend, 1);
 }
 
-void testScene2(SDL_Renderer *rend, std::vector<SDL_Event> events){
+void testScene2(SDL_Renderer *rend, std::vector<SDL_Event> events, int mouse_x, int mouse_y){
 	for(int i = 0; i < events.size(); i++){
 		switch(events[i].type){
 			case SDL_KEYDOWN:

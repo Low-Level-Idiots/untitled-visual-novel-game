@@ -16,12 +16,12 @@ void Img::render(SDL_Renderer *rend, int x, int y, int w, int h){
 
 Button::Button(SDL_Renderer *rend, int x_pos, int y_pos){
 	Img temp_sprite = Img(rend, "assets/test_button.png");
-	sprite = &temp_sprite;                                                                         // part 1 of the pointer ping pong solution
+	sprite = &temp_sprite;                                                     // part 1 of the pointer ping pong solution
 	x = x_pos;
 	y = y_pos;
 }
 
 void Button::render(SDL_Renderer *rend, int scale){
-	Img temp_sprite = *sprite;                                                                     // part 2 of the pointer ping pong solution
+	Img temp_sprite = *sprite;                                                 // part 2 of the pointer ping pong solution
 	temp_sprite.render(rend, x, y, 75 * scale, 25 * scale);
 }
