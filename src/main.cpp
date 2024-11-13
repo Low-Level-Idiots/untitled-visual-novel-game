@@ -12,11 +12,16 @@ int main(int argc, char* argv[]){
 	IMG_Init(IMG_INIT_PNG);                                                                        // Init SDL2_image
 	SDL_Window *win = SDL_CreateWindow("Untitled Visual Novel Game", 30, 10, 1000, 600, 0);        // make game window
 	SDL_Renderer *rend = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED);                    // 
+	SDL_ShowCursor(0);
 
 	Img icon(rend, "assets/test.png");
+	Img cursor(rend, "assets/NULL.png");
 
 	SDL_SetWindowIcon(win, icon.surf);
 	scene = testScene1;
+
+	int mouse_x;
+	int mouse_y;
 
 	bool running = true;
 	while(running){
@@ -43,6 +48,8 @@ int main(int argc, char* argv[]){
 
 		icon.render(rend, 100, 100, 100, 100);
 
+		SDL_GetMouseState(&mouse_x, &mouse_y);
+		cursor.render(rend,mouse_x, mouse_y, 22, 22);
 		SDL_RenderPresent(rend);
 	}
 	SDL_DestroyWindow(win);
