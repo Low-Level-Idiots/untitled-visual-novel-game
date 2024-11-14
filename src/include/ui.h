@@ -21,7 +21,7 @@ class Button {
 		int x;
 		int y;
 		void render(SDL_Renderer *rend, int scale);
-		bool clicked(std::vector<SDL_Event> events);
+		bool clicked(std::vector<SDL_Event> events, int mouse_x, int mouse_y);
 };
 
 #endif

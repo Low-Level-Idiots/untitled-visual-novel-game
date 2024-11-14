@@ -21,6 +21,9 @@ void testScene1(SDL_Renderer *rend, std::vector<SDL_Event> events, int mouse_x, 
 	}
 	SDL_SetRenderDrawColor(rend, 170, 170, 255, 255);
 	button.render(rend, 1);
+	if(button.clicked(events, mouse_x, mouse_y)){
+		std::cout << "clicked" << std::endl;
+	}
 }
 
 void testScene2(SDL_Renderer *rend, std::vector<SDL_Event> events, int mouse_x, int mouse_y){
