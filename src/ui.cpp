@@ -2,6 +2,7 @@
 #include <vector>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
 
 #include "ui.h"
 
@@ -10,6 +11,17 @@ Img::Img(std::string filename){
 }
 
 void Img::render(SDL_Renderer *rend, int x, int y, int w, int h){
+	SDL_Rect dest {x, y, w, h};
+	SDL_RenderCopy(rend, SDL_CreateTextureFromSurface(rend, surf), NULL, &dest);
+}
+
+Text::Text(std::string msg, int size, SDL_Color clr){
+	TTF_Font* font = TTF_OpenFont("assets/test_font.ttf", size);
+	surf = TTF_RenderText_Solid(font, msg.c_str(), clr);
+	TTF_CloseFont(font);
+}
+
+void Text::render(SDL_Renderer *rend, int x, int y, int w, int h){
 	SDL_Rect dest {x, y, w, h};
 	SDL_RenderCopy(rend, SDL_CreateTextureFromSurface(rend, surf), NULL, &dest);
 }

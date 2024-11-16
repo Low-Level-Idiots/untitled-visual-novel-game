@@ -5,11 +5,19 @@
 #include <vector>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
 
 class Img {
 	public:
 		Img(std::string filename);
 		SDL_Surface *surf;
+		void render(SDL_Renderer* rend, int x, int y, int w, int h);
+};
+
+class Text {
+	public:
+		Text(std::string msg, int size, SDL_Color clr);
+		SDL_Surface* surf;
 		void render(SDL_Renderer* rend, int x, int y, int w, int h);
 };
 
