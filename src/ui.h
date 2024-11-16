@@ -8,15 +8,14 @@
 
 class Img {
 	public:
-		Img(SDL_Renderer* rend, char* file);
+		Img(std::string filename);
 		SDL_Surface *surf;
-		SDL_Texture *tex;
 		void render(SDL_Renderer* rend, int x, int y, int w, int h);
 };
 
 class Button {
 	public:
-		Button(SDL_Renderer* rend, int x, int y);
+		Button(int x, int y);
 		Img *sprite;
 		int x;
 		int y;

@@ -2,8 +2,8 @@
 #include <vector>
 #include <iostream>
 
-#include "include/scene.h"
-#include "include/ui.h"
+#include "scene.h"
+#include "ui.h"
 
 void testScene1(SDL_Renderer *rend, std::vector<SDL_Event> events, int mouse_x, int mouse_y);
 void testScene2(SDL_Renderer *rend, std::vector<SDL_Event> events, int mouse_x, int mouse_y);
@@ -11,7 +11,7 @@ void testScene2(SDL_Renderer *rend, std::vector<SDL_Event> events, int mouse_x, 
 std::function<void(SDL_Renderer*, std::vector<SDL_Event>, int, int)> scene;
 
 void testScene1(SDL_Renderer *rend, std::vector<SDL_Event> events, int mouse_x, int mouse_y){
-	Button button(rend, 50, 50);
+	Button button(50, 50);
 	for(int i = 0; i < events.size(); i++){
 		switch(events[i].type){
 			case SDL_KEYDOWN:

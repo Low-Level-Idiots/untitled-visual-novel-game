@@ -3,20 +3,19 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
-#include "include/ui.h"
+#include "ui.h"
 
-Img::Img(SDL_Renderer *rend, char* file){
-	surf = IMG_Load(file);
-	tex = SDL_CreateTextureFromSurface(rend, surf);
+Img::Img(std::string filename){
+	surf = IMG_Load(filename.c_str());
 }
 
 void Img::render(SDL_Renderer *rend, int x, int y, int w, int h){
 	SDL_Rect dest {x, y, w, h};
-	SDL_RenderCopy(rend, tex, NULL, &dest);
+	SDL_RenderCopy(rend, SDL_CreateTextureFromSurface(rend, surf), NULL, &dest);
 }
 
-Button::Button(SDL_Renderer *rend, int x_pos, int y_pos){
-	Img temp_sprite = Img(rend, "assets/test_button.png");
+Button::Button(int x_pos, int y_pos){
+	Img temp_sprite = Img("assets/test_button.png");
 	sprite = &temp_sprite;                                                     // part 1 of the pointer ping pong solution
 	x = x_pos;
 	y = y_pos;

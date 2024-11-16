@@ -4,8 +4,8 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
-#include "include/ui.h"
-#include "include/scene.h"
+#include "ui.h"
+#include "scene.h"
 
 int main(int argc, char* argv[]){
 	SDL_Init(SDL_INIT_EVERYTHING);                                                                 // Init SDL2 lib
@@ -14,8 +14,8 @@ int main(int argc, char* argv[]){
 	SDL_Renderer *rend = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED);                    // 
 	SDL_ShowCursor(0);
 
-	Img icon(rend, "assets/test.png");
-	Img cursor(rend, "assets/NULL.png");
+	Img icon("assets/test.png");
+	Img cursor("assets/NULL.png");
 
 	SDL_SetWindowIcon(win, icon.surf);
 	scene = testScene1;
